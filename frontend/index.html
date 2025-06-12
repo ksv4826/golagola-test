@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 질문 시스템</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome CDN for cute icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Custom styles for pastel-themed design */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fce7f3 0%, #e2e8f0 100%); /* Pastel pink to lavender */
+    }
+    .input-container {
+      transition: all 0.3s ease;
+      background-color: #f9e8ef; /* Pastel pink input background */
+    }
+    .input-container:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary {
+      transition: all 0.3s ease;
+      background-color: #a7f3d0; /* Pastel mint button */
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 100, 100, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-lg w-full bg-white rounded-2xl shadow-lg p-6 space-y-6">
+    <h2 class="text-2xl font-bold text-gray-800 text-center">
+      <i class="fa-solid fa-robot text-pink-400 mr-2"></i> AI 상담사 GolaGola
+    </h2>
+    
+    <div class="input-container flex items-center rounded-full p-2">
+      <i class="fa-solid fa-magnifying-glass text-purple-300 ml-3 mr-2"></i>
+      <input 
+        type="text" 
+        id="question" 
+        placeholder="궁금한 점을 물어보세요!" 
+        class="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400"
+      />
+    </div>
+    
+    <button 
+      onclick="sendQuestion()" 
+      class="btn-primary w-full text-gray-800 font-semibold py-3 rounded-full flex items-center justify-center space-x-2"
+    >
+      <i class="fa-solid fa-paper-plane text-purple-400"></i>
+      <span>질문하기</span>
+    </button>
+    
+    <div class="bg-pink-50 p-4 rounded-lg">
+      <p class="text-gray-700 font-medium">
+        <i class="fa-solid fa-comment-dots text-pink-300 mr-2"></i>
+        <strong>답변:</strong> 
+        <span id="answer" class="text-gray-600"></span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    async function sendQuestion() {
+      const input = document.getElementById("question").value;
+      const answerElement = document.getElementById("answer");
+      
+      // Show loading state
+      answerElement.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-purple-400 mr-2"></i> 답변을 준비 중이에요...';
+      
+      try {
+        const res = await fetch("https://ai-chat-backend-myf6.onrender.com/api", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input })
+        });
+        
+        const data = await res.json();
+        answerElement.innerText = data.reply;
+      } catch (error) {
+        answerElement.innerHTML = '<i class="fa-solid fa-exclamation-circle text-red-400 mr-2"></i> 오류가 발생했어요. 다시 시도해주세요!';
+      }
+    }
+  </script>
+</body>
+</html>

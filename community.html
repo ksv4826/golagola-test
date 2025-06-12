@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLAGOLA - 커뮤니티 피드백</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="community.css">
+</head>
+<body class="min-h-screen">
+    <!-- 헤더 -->
+    <header class="bg-white shadow-sm py-4 sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-pink-500"><span class="gola-font">GOLAGOLA</span></h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-700 items-center">
+                    <li><a href="index.html" class="hover:text-pink-500 transition">홈</a></li>
+                    <li><a href="random.html" class="hover:text-pink-500 transition">랜덤 도구</a></li>
+                    <li><a href="community.html" class="font-bold text-pink-500">커뮤니티</a></li>
+                    <li id="authSection">
+                        <a href="login.html" class="hover:text-pink-500 transition">로그인</a>
+                        <span class="mx-2 text-gray-500">|</span>
+                        <a href="signup.html" class="hover:text-pink-500 transition">회원가입</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 섹션 -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white text-center mb-8 fade-in drop-shadow-lg"><span class="gola-font">GOLAGOLA</span> 커뮤니티</h2>
+            <p class="text-lg text-white text-center mb-12 max-w-2xl mx-auto fade-in drop-shadow">친구들과 함께 고민을 공유하고 투표로 최적의 선택을 찾아보세요!</p>
+
+            <!-- 고민 작성 폼 -->
+            <div id="postForm" class="bg-white bg-opacity-90 p-8 rounded-xl shadow-xl max-w-3xl mx-auto mb-12 fade-in">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">고민 공유하기</h3>
+                <form class="space-y-4">
+                    <input type="text" id="postTitle" placeholder="고민 제목 (예: 오늘 점심 뭐 먹지?)" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                    <textarea id="postDescription" placeholder="자세한 설명 (예: 짜장면, 짬뽕, 탕수육 중 고민돼요!)" class="w-full p-3 border rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-pink-300"></textarea>
+                    <div class="flex space-x-4">
+                        <input type="text" id="option1" placeholder="옵션 1 (예: 짜장면)" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                        <input type="text" id="option2" placeholder="옵션 2 (예: 짬뽕)" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                        <input type="text" id="option3" placeholder="옵션 3 (예: 탕수육)" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                    </div>
+                    <button type="submit" onclick="submitPost(event)" class="bg-pink-500 text-white px-6 py-3 rounded-lg font-semibold btn-hover">고민 올리기</button>
+                </form>
+            </div>
+
+            <!-- 피드백 피드 -->
+            <div class="space-y-8">
+                <!-- 피드백 카드 예시 -->
+                <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-xl max-w-3xl mx-auto fade-in">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800" id="postUser">창민</p>
+                            <p class="text-sm text-gray-500">2시간 전</p>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">오늘 점심 뭐 먹지?</h3>
+                    <p class="text-gray-600 mb-4">짜장면, 짬뽕, 탕수육 중에 고민돼요. 뭐가 좋을까요?</p>
+                    <div class="flex space-x-4 mb-4">
+                        <button class="bg-pink-100 text-pink-600 px-4 py-2 rounded-lg btn-hover">짜장면 (5표)</button>
+                        <button class="bg-pink-100 text-pink-600 px-4 py-2 rounded-lg btn-hover">짬뽕 (3표)</button>
+                        <button class="bg-pink-100 text-pink-600 px-4 py-2 rounded-lg btn-hover">탕수육 (2표)</button>
+                    </div>
+                    <div class="border-t pt-4">
+                        <p class="text-gray-600"><span class="font-semibold">주연:</span> 짬뽕 강추! 매콤한 게 당긴다~</p>
+                        <p class="text-gray-600"><span class="font-semibold">재현:</span> 탕수육이 최고지!</p>
+                    </div>
+                    <button class="mt-4 text-pink-500 hover:underline">댓글 더 보기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>© GOLAGOLA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="community.js"></script>
+</body>
+</html>

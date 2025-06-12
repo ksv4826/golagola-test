@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Cafe24Nyangi-W-v1.0';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/Cafe24Nyangi-W-v1.0.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HancomMalangMalang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    font-family: 'HancomMalangMalang-Regular', 'Inter', sans-serif;
+    background: linear-gradient(135deg, #A5B4FC, #FBCFE8, #6EE7B7);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.btn-hover {
+    transition: all 0.3s ease;
+}
+.btn-hover:hover {
+    transform: scale(1.05);
+    background-color: #DB2777;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.roulette-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.roulette-pointer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #EF4444;
+    z-index: 10;
+}
+.tool-description {
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin-top: 0.5rem;
+}
+.gola-font {
+    font-family: 'Cafe24Nyangi-W-v1.0', sans-serif;
+}

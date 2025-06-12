@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 프로필 - GOLAGOLA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen fade-in">
+    <header class="bg-white shadow-sm py-4 sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-pink-500 gola-font">GOLAGOLA</h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-700">
+                    <li><a href="index.html" class="hover:text-pink-500 transition">홈</a></li>
+                    <li><a href="random.html" class="hover:text-pink-500 transition">랜덤 도구</a></li>
+                    <li><a href="community.html" class="hover:text-pink-500 transition">커뮤니티</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white text-center mb-8 fade-in drop-shadow-lg">내 프로필</h2>
+            <p class="text-lg text-white text-center mb-12 max-w-2xl mx-auto fade-in drop-shadow"><span class="gola-font">GOLAGOLA</span> 사용자 정보입니다.</p>
+
+            <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-xl max-w-lg mx-auto fade-in">
+                <div id="profileInfo" class="text-lg text-gray-700 space-y-2"></div>
+                <div class="mt-6 flex justify-between items-center">
+                    <button onclick="logout()" class="bg-pink-500 text-white px-6 py-3 rounded-lg font-semibold btn-hover">로그아웃</button>
+                    <a href="index.html" class="text-blue-500 hover:underline">홈으로 돌아가기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-4 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <p>© GOLAGOLA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem("loggedInUser"));
+        const profile = document.getElementById("profileInfo");
+
+        if (user) {
+            profile.innerHTML = `
+                <p><strong>이름:</strong> ${user.name}</p>
+                <p><strong>아이디:</strong> ${user.userId}</p>
+                <p><strong>성별:</strong> ${user.gender}</p>
+                <p><strong>생년월일:</strong> ${user.birthdate}</p>
+            `;
+        } else {
+            alert("로그인이 필요합니다.");
+            window.location.href = "login.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

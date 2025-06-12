@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLAGOLA - 로그인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-sm py-4 sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-pink-500"><span class="gola-font">GOLAGOLA</span></h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-700">
+                    <li><a href="index.html" class="hover:text-pink-500 transition">홈</a></li>
+                    <li><a href="random.html" class="hover:text-pink-500 transition">랜덤 도구</a></li>
+                    <li><a href="community.html" class="hover:text-pink-500 transition">커뮤니티</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white text-center mb-8 fade-in drop-shadow-lg">로그인</h2>
+            <p class="text-lg text-white text-center mb-12 max-w-2xl mx-auto fade-in drop-shadow"><span class="gola-font">GOLAGOLA</span> 커뮤니티에 참여하려면 로그인하세요!</p>
+
+            <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-xl max-w-lg mx-auto fade-in">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">계정으로 접속</h3>
+                <form class="space-y-4">
+                    <input type="text" id="loginId" placeholder="아이디" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                    <input type="password" id="loginPassword" placeholder="비밀번호" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+                    <button type="submit" onclick="handleLogin(event)" class="bg-pink-500 text-white px-6 py-3 rounded-lg font-semibold btn-hover">로그인</button>
+                </form>
+                <p class="text-center text-gray-600 mt-4">계정이 없으신가요? <a href="signup.html" class="text-pink-500 hover:underline">회원가입</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>© GOLAGOLA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

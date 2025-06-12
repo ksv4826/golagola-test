@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Cafe24Nyangi-W-v1.0';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/Cafe24Nyangi-W-v1.0.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HancomMalangMalang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+body { 
+    font-family: 'HancomMalangMalang-Regular', 'Inter', sans-serif;
+    background: linear-gradient(135deg, #6EE7B7, #3B82F6, #F472B6);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.fade-in { 
+    animation: fadeIn 1s ease-in; 
+}
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+.btn-hover {
+    transition: all 0.3s ease;
+}
+.btn-hover:hover {
+    transform: scale(1.05);
+    background-color: #EC4899;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.gola-font {
+    font-family: 'Cafe24Nyangi-W-v1.0', sans-serif;
+}

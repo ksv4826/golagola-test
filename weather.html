@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨 예보</title>
+    <link rel="stylesheet" href="weather_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>오늘의 날씨</h1>
+
+        <div id="controls">
+            <input type="text" id="searchInput" placeholder="검색">
+            <select id="locationSelect">
+                <option value="">목록</option>
+            </select>
+            <button id="getWeatherButton">확인</button>
+        </div>
+
+        <div id="weatherResult">
+            <p>지역을 검색하거나 선택 후 '확인' 버튼을 클릭하세요.</p>
+        </div>
+    </div>
+
+    <script src="locations_data.js"></script>
+    <script src="weather_script.js"></script>
+</body>
+</html>
